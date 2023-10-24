@@ -33,7 +33,8 @@ def createDocument(col, docId, docText, docTitle, docDate, docCat):
     # create a dictionary to count how many times each term appears in the document.
     # Use space " " as the delimiter character for terms and remember to lowercase them.
     termFreq = {}
-    terms = docText.lower().split(" ")
+    document = "".join(text for text in docText if text.isalnum() or text.isspace())
+    terms = document.lower().split(" ")
     for term in terms:
         if term in termFreq:
             termFreq[term] += 1
